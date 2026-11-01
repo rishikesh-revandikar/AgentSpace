@@ -120,7 +120,7 @@ A switch never learns “PC2 is two hops away.” It only learns “this MAC cam
 
 - It does not rewrite MAC addresses. The frame PC1 sent is the frame PC2 receives, as long as both are in the same VLAN and no router is in the path.
 - It does not decrement TTL. TTL is an IP field. Switches are not routing.
-- It does not drop a broadcast. It floods it. Too many hosts in one VLAN means every ARP request and every DHCP discover interrupts every host. That is the reason VLANs exist (day 16).
+- It does not drop a broadcast. It floods it. Too many hosts in one VLAN means every ARP request and every DHCP discover interrupts every host. That is the reason VLANs exist (day 16). The discover itself is [DHCP](../01-fundamentals/16-dhcp-and-dns.md).
 
 ## When the destination is off the subnet
 

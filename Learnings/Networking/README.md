@@ -2,7 +2,28 @@
 
 Notes for the roadmap below, grouped by what you are trying to learn. Watch the video linked in the note, then read the note and the article. Each note has a diagram, a worked example, and a short self-check.
 
-Days 1–17 of Jeremy’s IT Lab are the fundamentals, LAN switching, and static routing notes. Everything after that is the rest of the roadmap: OSPF through YANG.
+Days 1–17 of Jeremy’s IT Lab are the early fundamentals, LAN switching, and static routing notes. The later fundamentals (DHCP, DNS, TCP reliability, wireless) and the campus services (EtherChannel, Layer 2 security, gateway redundancy, ACLs, NAT, policy, multicast, tunnels) sit in the same folders, because the service-provider notes assume them. OSPF through YANG is the rest of the roadmap.
+
+## Find a note by the failure in front of you
+
+| What you are looking at | Open |
+|-------------------------|------|
+| No address, 169.254.x.x, or a name that will not resolve | [DHCP and DNS](01-fundamentals/16-dhcp-and-dns.md) |
+| A transfer hangs and a small ping works | [MTU and tunnels](03-routing/12-mtu-and-tunnels.md) |
+| Ping works one way | [Static routing](03-routing/01-static-routing.md), then [life of a packet](03-routing/02-life-of-a-packet.md) |
+| Two VLANs, no ping between them | [Trunks and router on a stick](02-lan-switching/02-vlans-trunks-and-roas.md) |
+| A new switch erased the VLAN database | [VLANs](02-lan-switching/01-vlans-access-ports.md) (VTP section) |
+| A broadcast storm, or the root bridge is an access switch | [Spanning tree](02-lan-switching/03-spanning-tree.md) |
+| A second cable is idle | [EtherChannel](02-lan-switching/04-etherchannel.md) |
+| The gateway router died and the PCs still point at it | [Gateway redundancy](03-routing/07-gateway-redundancy.md) |
+| A desk port is offering DHCP or answering ARP | [Layer 2 security](02-lan-switching/05-layer2-security.md) |
+| OSPF neighbor missing, or the wrong area | [OSPF](03-routing/03-ospf.md) |
+| BGP stays Active, or the exit is the wrong one | [BGP](03-routing/05-bgp.md) and [TCP reliability](01-fundamentals/17-tcp-reliability.md) |
+| The route exists in the wrong protocol, or a customer leaked prefixes | [Routing policy](03-routing/10-routing-policy.md) |
+| Private addresses need to reach the Internet | [NAT](03-routing/09-nat.md) |
+| OSPF hellos, or a stream nobody joined | [Multicast](03-routing/11-multicast.md) |
+| Customer routes, and you do not want them in the core | [MPLS](04-mpls/01-architecture-ldp-and-labels.md), then [L3VPN](05-vpn-services/01-l3vpn.md) |
+| The VPN route is in BGP and traffic is blackholed | [RIB, FIB, and LFIB](07-forwarding/01-rib-fib-lfib.md) and the L3VPN note |
 
 Playlist for the CCNA days: [Free CCNA v1.1](https://www.youtube.com/playlist?list=PLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ).
 
@@ -34,6 +55,9 @@ Playlist for the CCNA days: [Free CCNA v1.1](https://www.youtube.com/playlist?li
 | [Subnetting, part 2](01-fundamentals/13-subnetting-2.md) | Masks that cross octets |
 | [VLSM](01-fundamentals/14-subnetting-vlsm.md) | Different sizes from one block |
 | [IPv6](01-fundamentals/15-ipv6.md) | Address types, NDP, SLAAC |
+| [DHCP and DNS](01-fundamentals/16-dhcp-and-dns.md) | DORA, relay, and how a name becomes an address |
+| [TCP reliability](01-fundamentals/17-tcp-reliability.md) | Sequence numbers, windows, loss, MSS |
+| [Wireless](01-fundamentals/18-wireless.md) | Association, channels, and the VLAN the SSID lands in |
 
 ## 02 — LAN switching
 
@@ -42,6 +66,8 @@ Playlist for the CCNA days: [Free CCNA v1.1](https://www.youtube.com/playlist?li
 | [VLANs, access ports](02-lan-switching/01-vlans-access-ports.md) | One broadcast domain per VLAN |
 | [Trunks and router on a stick](02-lan-switching/02-vlans-trunks-and-roas.md) | 802.1Q and inter-VLAN routing |
 | [Spanning tree](02-lan-switching/03-spanning-tree.md) | Loops, RSTP, root bridge |
+| [EtherChannel](02-lan-switching/04-etherchannel.md) | LACP, and why both cables can forward |
+| [Layer 2 security](02-lan-switching/05-layer2-security.md) | Port security, DHCP snooping, DAI |
 
 ## 03 — Routing
 
@@ -53,6 +79,12 @@ Playlist for the CCNA days: [Free CCNA v1.1](https://www.youtube.com/playlist?li
 | [IS-IS](03-routing/04-is-is.md) | Levels, NET, TLVs. [31-minute intro](https://www.youtube.com/watch?v=jWdD8SCwzHk) |
 | [BGP](03-routing/05-bgp.md) | [Keith Barker playlist](https://www.youtube.com/playlist?list=PLwQhJUHSLJFUO5YzFH2wveh2zcHUKj11w), [how a path is chosen](https://www.practicalnetworking.net/stand-alone/bgp-oldest-path/) |
 | [VRF](03-routing/06-vrf.md) | Separate tables, RD versus RT |
+| [Gateway redundancy](03-routing/07-gateway-redundancy.md) | HSRP and VRRP, the virtual default gateway |
+| [Access lists](03-routing/08-acls.md) | First match, implicit deny, direction |
+| [NAT](03-routing/09-nat.md) | Inside local and global, PAT |
+| [Routing policy](03-routing/10-routing-policy.md) | Prefix-lists, route-maps, redistribution |
+| [Multicast](03-routing/11-multicast.md) | IGMP, PIM sparse, RPF |
+| [MTU and tunnels](03-routing/12-mtu-and-tunnels.md) | PMTUD, GRE, and the bytes MPLS and VXLAN add |
 
 ## 04 — MPLS
 
@@ -118,20 +150,27 @@ These are the external pieces the notes cite, kept here so a phase can be studie
 ## Shortest path through the notes
 
 ```text
-1. Fundamentals folder, then life of a packet
-2. LAN switching, including spanning tree
-3. OSPF, IS-IS, BGP, VRF
-4. MPLS architecture
-5. L3VPN, then PE-CE, then L2VPN and EVPN
-6. RSVP-TE, then SR-MPLS. SRv6 only if the product needs it
-7. RIB/FIB/LFIB, QoS, HA, the troubleshooting checklist
-8. YANG / NETCONF / gNMI
+1. Fundamentals, through DHCP/DNS and TCP. Wireless when you touch an AP.
+2. Life of a packet, then LAN switching: VLANs, STP, EtherChannel, Layer 2 security
+3. Static routing, gateway redundancy, ACLs, NAT
+4. OSPF and IS-IS. Multicast once OSPF’s groups are familiar.
+5. BGP, routing policy, VRF
+6. MTU and tunnels, then MPLS
+7. L3VPN, PE-CE, L2VPN, EVPN
+8. RSVP-TE, then SR-MPLS. SRv6 only if the product needs it
+9. RIB/FIB/LFIB, QoS, HA, the troubleshooting checklist
+10. YANG / NETCONF / gNMI
 ```
 
-## Gaps
+Routing policy is listed after BGP because the attributes it sets are BGP’s. The prefix-list syntax is worth reading the same day you configure the first neighbor.
 
-| Topic | What the note does not replace |
-|--------|--------------------------------|
-| Full IS-IS labs | A vendor course after the 31-minute intro and JNCIS-SP |
-| Carrier-grade TE and FRR | A Nokia, Junos, or IOS-XR lab. The note is the mechanism. |
+## What these notes still do not replace
+
+| Topic | Where to go next |
+|--------|------------------|
+| Full IS-IS labs | A vendor course after the intro note and JNCIS-SP |
+| Carrier-grade TE and FRR | A Nokia, Junos, or IOS-XR lab. The RSVP and SR notes are the mechanism. |
 | ASIC and SDK forwarding | Internal architecture docs. [RIB, FIB, and LFIB](07-forwarding/01-rib-fib-lfib.md) is the public model only. |
+| IKE transform sets and PKI | The vendor’s current IPsec guide. [MTU and tunnels](03-routing/12-mtu-and-tunnels.md) is the header and the failure mode. |
+| A wireless site survey | The wireless note stops at channels, association, and the VLAN map. |
+| Product SD-WAN | The overlay idea is GRE, IPsec, and EVPN. The controller and the business policy are the product’s own course. |

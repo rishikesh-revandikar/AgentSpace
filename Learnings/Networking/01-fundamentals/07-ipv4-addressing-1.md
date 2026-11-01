@@ -54,7 +54,7 @@ Work a few of these until they are automatic. The ones you need constantly are t
 
 ## Network vs host
 
-The **subnet mask** is 32 bits of 1s followed by 32 bits of 0s. The 1s mark the network. The 0s mark the host.
+A **subnet mask** is 32 bits long: one contiguous run of 1s, then one contiguous run of 0s. The 1s mark the network. The 0s mark the host.
 
 `255.255.255.0` is twenty-four 1s and eight 0s. Written in CIDR as **/24**. Both notations mean the same mask. Cisco commands usually want the dotted decimal mask. Design conversations usually use the slash.
 

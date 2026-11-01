@@ -39,10 +39,25 @@ Put one subnet in one VLAN. VLAN 10 as 192.168.10.0/24 and VLAN 20 as 192.168.20
 | 1 | Default | Every port starts here. You cannot delete VLAN 1. You can move all user ports out of it. |
 | 1–1005 | Normal range | Stored in `vlan.dat` on the switch. |
 | 1002–1005 | Reserved | Legacy Token Ring and FDDI. Do not use them. |
-| 1006–4094 | Extended range | Needs the switch in VTP transparent mode. Day 19 covers VTP. You will not need extended VLANs for this lab. |
+| 1006–4094 | Extended range | Usable when VTP is transparent or off. See VTP below. |
 | 0 and 4095 | Reserved by 802.1Q | Not usable as VLAN IDs. The tag’s VLAN field is 12 bits, so the numbers stop at 4095. |
 
 Day 17 goes further into the tag. For today, use VLAN IDs from 2 upward for user data, and leave VLAN 1 empty of users when you can.
+
+## VTP, and why a new switch can erase your VLANs
+
+**VTP** (VLAN Trunking Protocol) copies the VLAN database from one switch to others over trunks. It is convenient, and it is a common outage.
+
+| Mode | What it does |
+|------|----------------|
+| Server | Creates and changes VLANs, and advertises them. This is the old default on many IOS trains. |
+| Client | Accepts the database. It will not let you create a VLAN locally. |
+| Transparent | Keeps its own database, does not install advertisements, and forwards them. Extended-range VLANs require this mode or off. |
+| Off | Does not participate. This is the safe default on current IOS. |
+
+Advertisements carry a **revision number**. The higher number wins, even when the database is empty. A lab switch that used to be a server, with a high revision and no VLANs, can wipe VLAN 10 off a production switch the moment you trunk them together.
+
+For these notes, set `vtp mode off` or `vtp mode transparent`, and create each VLAN on each switch (or push it with automation). Do not rely on VTP to make VLAN numbers match. A trunk carries the tag. It does not create the VLAN in the other switch unless VTP is actively doing that, and you do not want it to.
 
 ## Access ports
 

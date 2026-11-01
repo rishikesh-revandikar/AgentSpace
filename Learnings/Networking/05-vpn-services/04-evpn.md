@@ -74,6 +74,18 @@ Integrated routing and bridging means the PE has both a bridge table for the VLA
 
 That is the default data-center design: bridge inside the rack or the VLAN if you must, route everywhere else, advertise host routes (type 2) or prefixes (type 5) so the return path is known.
 
+## Spine and leaf, the fabric underneath VXLAN
+
+A data-center picture of EVPN is usually a **leaf-spine** underlay, not a campus triangle of switches.
+
+- **Leaves** attach the servers. Each leaf is a VTEP.
+- **Spines** connect leaves to each other. Spines do not connect to servers, and in the classic design they do not connect to each other.
+- Every leaf has a link to every spine. Those links are routed (/31 or /32-on-loopback with unnumbered), so spanning tree has nothing to block.
+- The underlay IGP (or BGP) gives every leaf equal-cost paths to every other leaf’s loopback. Traffic spreads across the spines.
+- EVPN on top decides which VNI and which VTEP a MAC or prefix uses.
+
+If someone draws EVPN as one big VLAN stretched across a Layer 2 underlay, they have rebuilt the failure domain EVPN was brought in to leave. The underlay should already be able to route from leaf to leaf before the first EVPN route exists. MTU has to fit the VXLAN header. That arithmetic is in [MTU and tunnels](../03-routing/12-mtu-and-tunnels.md).
+
 ## What you give up if you stretch every VLAN everywhere
 
 EVPN can stretch a VLAN across a data center. Doing it for every subnet recreates the VPLS failure domain: broadcasts, STP or its replacement, and a large BUM domain. Use EVPN’s ability to route. Stretch L2 only for the workloads that actually move and need the same address.

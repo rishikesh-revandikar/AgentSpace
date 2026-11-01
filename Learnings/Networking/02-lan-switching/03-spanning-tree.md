@@ -39,14 +39,17 @@ SW1(config)# spanning-tree vlan 10 root primary
 
 That lowers the priority so SW1 wins. `root secondary` is the backup.
 
-**Path cost** is the cost of the links toward the root, added at each hop. Revised IEEE costs you should remember:
+**Path cost** is the cost of the links toward the root, added at each hop. Cisco’s default is the short (16-bit) cost table:
 
-| Speed | Cost |
-|-------|------|
+| Speed | Short cost (default) |
+|-------|----------------------|
 | 10 Mbps | 100 |
 | 100 Mbps | 19 |
 | 1 Gbps | 4 |
 | 10 Gbps | 2 |
+| 100 Gbps | 1 |
+
+Those short numbers run out of room: 10 Gbps and faster are barely different, and 100 Gbps is already 1. `spanning-tree pathcost method long` switches to the 32-bit costs (1 Gbps is 20,000, 10 Gbps is 2,000, 100 Gbps is 200), so faster links actually win. Use long mode when the campus has mixed 1/10/100 Gbps links, and use the same method on every switch. The examples below use the short table, because that is what an untouched IOS switch computes.
 
 ### Worked example
 

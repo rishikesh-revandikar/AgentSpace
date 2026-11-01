@@ -87,8 +87,8 @@ Adjacent layers on the **same** host serve each other: TCP asks IP to deliver th
 Across one hop:
 
 - The **frame** is rebuilt at every router. Source and destination MAC belong to the current link only.
-- The **packet’s** source and destination IP stay the two hosts (until NAT, which is a later day).
-- The **segment** is untouched by routers. Routers do not look at ports unless they are filtering or translating.
+- The **packet’s** source and destination IP stay the two hosts, until [NAT](../03-routing/09-nat.md) rewrites them.
+- The **segment** is untouched by routers. Routers do not look at ports unless they are filtering or translating. TCP’s own reliability rules are in [TCP reliability](17-tcp-reliability.md).
 
 This is the whole plot of day 12. Learn it here first.
 
@@ -180,4 +180,4 @@ ARP is the one that does not sit neatly in a single OSI box. Treat it as the hel
 2. Segment, packet, frame.
 3. Network Access (Link).
 4. UDP, port 53.
-5. The Ethernet header is rebuilt on every hop, so the hosts plus the three routers means four links and four frames in sequence (the header is new each time a frame is sent). The IP source and destination stay the original hosts. Each router also decrements TTL, which is an IP header field you will study on day 10, but the addresses themselves stay.
+5. The source host builds the first Ethernet header. Each of the three routers strips that header and builds a new one for the next link, so the path is four frames and three rebuilds. The IP source and destination stay the original hosts. Each router also decrements TTL, which is an IP header field you will study on day 10.

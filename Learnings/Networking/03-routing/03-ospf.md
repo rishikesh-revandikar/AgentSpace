@@ -68,9 +68,15 @@ The unit is Mbps, so 100000 means 100 Gbps. A 10 Gbps link then costs 10, a 1 Gb
 | 1 | Router | A router’s links inside one area. Flooded inside the area. |
 | 2 | Network | The subnet of a broadcast segment, originated by the DR. |
 | 3 | Summary | An ABR telling one area about a prefix in another area. It is a distance, not the full topology. |
+| 4 | ASBR summary | How to reach the router that injected a type 5. Without it, area routers know the external prefix and have no path to the advertiser. |
 | 5 | External | A prefix redistributed into OSPF from BGP, static, or another protocol. Flooded through normal areas. |
+| 7 | NSSA external | A type 5 that is allowed to originate inside a not-so-stubby area. The ABR translates it to a type 5 for the rest of the domain. |
 
 Type 3 is why an area can stay small. Routers in area 1 do not run SPF on area 0’s links. They receive “10.1.0.0/16 is this way, cost N” from the ABR. The cost of losing that detail is that a suboptimal path across areas is possible. The gain is that a flap in area 0 does not recompute every router in area 1 from scratch.
+
+**Stub areas** shrink the database further. A stub area blocks type 5 externals and installs a default route from the ABR. A totally stubby area also blocks type 3, so the area has only its local LSAs plus a default. An NSSA is a stub that still needs to inject a few external prefixes, which travel as type 7 until the ABR converts them. Use a stub when the area has one exit and no reason to carry the Internet, or every customer route, inside it.
+
+IPv6 uses **OSPFv3**, a separate process from the OSPFv2 configuration above. Areas, DR election, and the LSA idea are the same shape. The [IPv6 note](../01-fundamentals/15-ipv6.md) is the address side.
 
 ## A minimal configuration
 
@@ -81,7 +87,7 @@ R1(config-router)# network 10.0.12.0 0.0.0.3 area 0
 R1(config-router)# network 1.1.1.1 0.0.0.0 area 0
 ```
 
-The network statement uses a **wildcard mask**, not a subnet mask. `0.0.0.3` matches a /30. The modern alternative enables OSPF on the interface and avoids a wildcard mistake:
+The network statement uses a **wildcard mask**, not a subnet mask. Invert each octet of the subnet mask: `255.255.255.252` (/30) becomes `0.0.0.3`, and `255.255.255.0` (/24) becomes `0.0.0.255`. A 0 bit must match the address in the statement. A 1 bit is ignored. The same wildcard shows up again on [access lists](08-acls.md). The modern alternative enables OSPF on the interface and avoids a wildcard mistake:
 
 ```text
 R1(config)# interface g0/0
@@ -98,7 +104,7 @@ Two routers share 10.0.12.0/30. R1 is in area 0, R2 was configured in area 1 on 
 
 1. What does the designated router forward that other routers do not?
 2. Two routers on a point-to-point link sit in 2-Way. Is the adjacency finished?
-3. Why do 1 Gbps and 100 Mbps look different under the default reference bandwidth, while 1 Gbps and 10 Gbps do not?
+3. Under the default reference bandwidth, what is the OSPF cost of a 10 Mbps link, a 100 Mbps link, and a 10 Gbps link? Why is the 10 Gbps result a problem?
 4. Which LSA lets area 1 learn a prefix from area 0 without learning area 0’s topology?
 5. A `network` statement uses `0.0.0.255` for a /24. What kind of mask is that?
 
@@ -106,6 +112,6 @@ Two routers share 10.0.12.0/30. R1 is in area 0, R2 was configured in area 1 on 
 
 1. Nothing in the data plane. The DR is the control-plane hub for adjacencies and originates the type 2 LSA.
 2. No. Point-to-point neighbors should reach Full. 2-Way is a finished state only between two non-DR routers on a broadcast segment.
-3. Default reference is 100 Mbps. 100 Mbps costs 1, 1 Gbps costs 1 (integer division of 100/1000), and 10 Gbps also costs 1. Anything at or above 100 Mbps collapses to cost 1.
+3. 10, 1, and 1. Cost is reference bandwidth divided by interface bandwidth, with a floor of 1. The default reference is 100 Mbps, so 10 Mbps costs 10 and anything at or above 100 Mbps costs 1. OSPF will not prefer a 10 Gbps link over a 100 Mbps link until you raise `auto-cost reference-bandwidth` on every router.
 4. Type 3, the summary LSA, originated by the ABR.
 5. A wildcard mask. The subnet mask would be `255.255.255.0`.

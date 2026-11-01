@@ -83,7 +83,7 @@ R2(config-router)# network 198.51.100.0 mask 255.255.255.0
 
 `network` advertises a prefix only if it is already in the routing table, with that mask. It does not create a connected route. iBGP sessions should source from a loopback so one link failure does not tear the session down. The IGP must be able to reach that loopback.
 
-`show ip bgp summary` shows the state and the prefix count. `show ip bgp 198.51.100.0/24` shows every candidate path and which one won, with the attributes. Read that output before you add another route map.
+`show ip bgp summary` shows the state and the prefix count. `show ip bgp 198.51.100.0/24` shows every candidate path and which one won, with the attributes. Read that output before you add another route map. How a route-map and a prefix-list are built, and how redistribution loops, is [routing policy](10-routing-policy.md).
 
 ## Check yourself
 

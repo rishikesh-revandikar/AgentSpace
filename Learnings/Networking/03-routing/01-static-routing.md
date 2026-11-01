@@ -182,7 +182,7 @@ Use this list in the day 11 troubleshooting lab. Stop at the first failure.
 3. `show ip route` on the source router. Is there a matching route, and is the next hop the address you intended?
 4. Check the same on the next router, and check the **return** route.
 5. On the PCs, confirm the gateway is the near router’s address, inside the PC’s subnet.
-6. Only then suspect an access list. You have not configured any yet. Do not start there.
+6. Only then check an access list. Matching and placement are in [ACLs](08-acls.md). If this lab never configured one, the failure is still in steps 1–5.
 
 A route can be in the running config and missing from the table when the next hop is not reachable or the exit interface is down. Fix the next hop. Do not add a second static route on top of a broken one until you know why the first is absent.
 

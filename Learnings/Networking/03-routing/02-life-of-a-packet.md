@@ -29,7 +29,9 @@ sequenceDiagram
 ```
 
 
-This day stitches day 6 and day 11 into one story. Pick a packet and follow it. At every device, name the source and destination IP, the source and destination MAC, and which table the device uses. If you can do that on a blank diagram, the rest of the CCNA has somewhere to sit.
+This day stitches day 6 and day 11 into one story. Pick a packet and follow it. At every device, name the source and destination IP, the source and destination MAC, and which table the device uses. If you can do that on a blank diagram, the rest of the notes have somewhere to sit.
+
+Two steps happen before this story. The host learns its address, mask, gateway, and DNS server from [DHCP](../01-fundamentals/16-dhcp-and-dns.md), and it learns the destination IP by resolving a name. This note begins once the IP packet exists.
 
 ## The rules, in one place
 

@@ -100,6 +100,8 @@ The protocol field tells the destination which process should have the payload. 
 | 1 | ICMP | ping, traceroute errors, “destination unreachable” |
 | 6 | TCP | web, SSH, email |
 | 17 | UDP | DNS, DHCP, SNMP |
+| 47 | GRE | a tunnel header, covered with [MTU and tunnels](../03-routing/12-mtu-and-tunnels.md) |
+| 50 | ESP | IPsec’s encrypted payload, same note |
 | 89 | OSPF | routing updates, later in the course |
 
 A ping is IP protocol 1, not TCP and not UDP. Access lists later in the course match ICMP separately from TCP port numbers. If you remember only one thing from this table, remember that ICMP is its own protocol number.
@@ -134,7 +136,7 @@ Check the payload: 1480 + 1480 + 1020 = 3980. Check the offset of the third frag
 
 If DF had been 1, the router would drop the 4000-byte packet and send ICMP Type 3 Code 4 (fragmentation needed) back to the source.
 
-You will rarely fragment on purpose. You will see the symptoms: a ping of the default size works (ICMP plus headers fit in 1500), and a large transfer hangs because DF is set and some link in the path has a smaller MTU (often a tunnel). The header fields are how you explain that hang.
+You will rarely fragment on purpose. The symptom to recognize: a default-size ping works, and a large transfer hangs, because DF is set and some link has a smaller MTU. How to find that link, and why tunnels cause it, is [MTU and tunnels](../03-routing/12-mtu-and-tunnels.md).
 
 ## What a router changes, and what it does not
 
@@ -145,7 +147,7 @@ On a normal forward:
 - Source and destination IP stay the same.
 - The Ethernet header is a different header, built for the next hop (day 12). It is not part of the IP header.
 
-NAT, later, rewrites the source or destination IP. Until then, if the addresses changed, you are looking at a different packet, not a forwarded one.
+[NAT](../03-routing/09-nat.md) rewrites the source or destination IP. On a router that is only forwarding, those two addresses stay put. If they changed, you are looking at translation, or at a different packet.
 
 ## Check yourself
 
