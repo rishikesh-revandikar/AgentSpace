@@ -44,7 +44,7 @@ A label sits between the Ethernet header and the IP header. Ethernet type `0x884
 | S | 1 | Bottom of stack. 1 means the next header is not another label. |
 | TTL | 8 | Decremented at each hop, same purpose as IP TTL. |
 
-A **stack** is more than one shim. The outer label gets the packet across the core. An inner label tells the egress PE which service or which VRF the packet belongs to. P routers swap only the outer label. See [L3VPN](../05-vpn-services/l3vpn.md) for the two-label case. This note is the one-label case: forwarding an IP packet across the core.
+A **stack** is more than one shim. The outer label gets the packet across the core. An inner label tells the egress PE which service or which VRF the packet belongs to. P routers swap only the outer label. See [L3VPN](../05-vpn-services/01-l3vpn.md) for the two-label case. This note is the one-label case: forwarding an IP packet across the core.
 
 ## FEC, LIB, LFIB
 

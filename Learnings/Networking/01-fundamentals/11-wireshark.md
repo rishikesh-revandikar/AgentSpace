@@ -48,7 +48,7 @@ PC 192.168.1.10 pings 192.168.1.20 on the same LAN. Display filter: `arp || icmp
 
 1. **ARP request.** Ethernet destination `ff:ff:ff:ff:ff:ff`. Ethertype `0x0806`. The ARP opcode is request (1). Target MAC is all zeros because the sender does not know it yet.
 2. **ARP reply.** Unicast back to the requester. Opcode 2. Sender MAC is the answer you needed.
-3. **ICMP echo request.** Ethertype `0x0800`. IP protocol 1. ICMP type 8, code 0. The IP identification and TTL are visible in the IPv4 tree. This is the same header as [the IPv4 header note](ipv4-header.md).
+3. **ICMP echo request.** Ethertype `0x0800`. IP protocol 1. ICMP type 8, code 0. The IP identification and TTL are visible in the IPv4 tree. This is the same header as [the IPv4 header note](10-ipv4-header.md).
 4. **ICMP echo reply.** Type 0. Same identifier and sequence so the sender can match the reply to the request.
 
 If step 1 appears and step 3 does not, the host never got a reply and never sent the ping. If step 3 appears and step 4 does not, the request left and the return path or the far host failed.
@@ -60,7 +60,7 @@ PC 192.168.1.10 pings 8.8.8.8.
 - The first ARP is for the **default gateway**, not for 8.8.8.8.
 - The ICMP packet’s destination IP is 8.8.8.8.
 - The Ethernet destination MAC is the gateway.
-- On the far side of the router, a new capture shows a different source MAC and a decremented TTL. The IP addresses are unchanged. That is [life of a packet](../03-routing/life-of-a-packet.md), visible in two capture files.
+- On the far side of the router, a new capture shows a different source MAC and a decremented TTL. The IP addresses are unchanged. That is [life of a packet](../03-routing/02-life-of-a-packet.md), visible in two capture files.
 
 ## Reading the packet bytes pane
 

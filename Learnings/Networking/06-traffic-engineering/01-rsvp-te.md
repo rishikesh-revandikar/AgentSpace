@@ -15,7 +15,7 @@ LDP follows the IGP shortest path and reserves nothing. RSVP-TE builds a path yo
 - [RFC 3209, RSVP-TE](https://datatracker.ietf.org/doc/html/rfc3209)
 - [RFC 4090, fast reroute extensions](https://datatracker.ietf.org/doc/html/rfc4090)
 
-The labels underneath are the same MPLS shim as [MPLS and LDP](../04-mpls/architecture-ldp-and-labels.md). The IGP has to be extended (OSPF TE or IS-IS TE) so every router knows the bandwidth and the affinities of every link.
+The labels underneath are the same MPLS shim as [MPLS and LDP](../04-mpls/01-architecture-ldp-and-labels.md). The IGP has to be extended (OSPF TE or IS-IS TE) so every router knows the bandwidth and the affinities of every link.
 
 ## Diagram
 
@@ -75,7 +75,7 @@ Nokia’s FRR coverage in the NRS II prep videos, linked from [SRC self-paced tr
 
 ## What you pay
 
-Every midpoint holds state per LSP. A full mesh of TE tunnels between N edge routers is `N*(N-1)` unidirectional LSPs, each with state on every hop. That is the scaling wall RSVP-TE hits, and the reason [SR-MPLS](sr-mpls.md) pushes the path decision to the headend and leaves the core with only IGP state.
+Every midpoint holds state per LSP. A full mesh of TE tunnels between N edge routers is `N*(N-1)` unidirectional LSPs, each with state on every hop. That is the scaling wall RSVP-TE hits, and the reason [SR-MPLS](02-sr-mpls.md) pushes the path decision to the headend and leaves the core with only IGP state.
 
 ## Check yourself
 

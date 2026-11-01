@@ -1,6 +1,6 @@
 # EVPN
 
-EVPN carries Ethernet and IP advertisements in BGP. The data plane can be MPLS or VXLAN. The control plane is the same idea either way: MAC addresses and host routes are routes, so they can be advertised, filtered, and withdrawn, instead of being learned by flooding. That is the fix for the VPLS problems in [L2VPN and VPLS](l2vpn-vpls.md).
+EVPN carries Ethernet and IP advertisements in BGP. The data plane can be MPLS or VXLAN. The control plane is the same idea either way: MAC addresses and host routes are routes, so they can be advertised, filtered, and withdrawn, instead of being learned by flooding. That is the fix for the VPLS problems in [L2VPN and VPLS](03-l2vpn-vpls.md).
 
 ## References
 

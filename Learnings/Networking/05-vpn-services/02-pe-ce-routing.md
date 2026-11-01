@@ -15,7 +15,7 @@ The PE-CE link is ordinary IP routing into a VRF. The customer does not run MPLS
 - [RFC 4364](https://datatracker.ietf.org/doc/rfc4364/) section 4 discusses PE-CE and the OSPF details
 - [RFC 4577, OSPF as a PE-CE protocol](https://datatracker.ietf.org/doc/html/rfc4577)
 
-The VPN itself is [L3VPN](l3vpn.md). The table the routes land in is a [VRF](../03-routing/vrf.md).
+The VPN itself is [L3VPN](01-l3vpn.md). The table the routes land in is a [VRF](../03-routing/06-vrf.md).
 
 ## Diagram
 

@@ -14,7 +14,7 @@ An L3VPN carries IP prefixes. An L2VPN carries Ethernet frames, so the customer 
 - [RFC 4762, VPLS using LDP](https://datatracker.ietf.org/doc/html/rfc4762)
 - Juniper TechLibrary, search “VPLS”. Nokia’s syllabus is in the [SRC self-paced catalog](https://www.nokia.com/networks/training/src/self-paced/) (the PDFs are paid).
 
-The transport under the pseudowire is the same MPLS core as [MPLS and LDP](../04-mpls/architecture-ldp-and-labels.md). The modern replacement for multipoint L2VPN is [EVPN](evpn.md).
+The transport under the pseudowire is the same MPLS core as [MPLS and LDP](../04-mpls/01-architecture-ldp-and-labels.md). The modern replacement for multipoint L2VPN is [EVPN](04-evpn.md).
 
 ## Diagram
 

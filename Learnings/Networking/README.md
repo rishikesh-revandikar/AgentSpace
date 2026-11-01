@@ -19,83 +19,83 @@ Playlist for the CCNA days: [Free CCNA v1.1](https://www.youtube.com/playlist?li
 
 | Note | Roadmap topic |
 |------|----------------|
-| [Network devices](01-fundamentals/network-devices.md) | What switches, routers, and firewalls each stop |
-| [Interfaces and cables](01-fundamentals/interfaces-and-cables.md) | Copper, fiber, PoE |
-| [TCP/IP model](01-fundamentals/tcp-ip-model.md) | OSI, encapsulation, ports. [Kurose videos](https://gaia.cs.umass.edu/kurose_ross/videos/1/) |
-| [Command line](01-fundamentals/command-line.md) | IOS modes and saving a config |
-| [Ethernet switching, part 1](01-fundamentals/ethernet-switching-1.md) | Frames and the MAC table |
-| [Ethernet switching, part 2](01-fundamentals/ethernet-switching-2.md) | ARP |
-| [IPv4 addressing, part 1](01-fundamentals/ipv4-addressing-1.md) | Masks, classes, private ranges |
-| [IPv4 addressing, part 2](01-fundamentals/ipv4-addressing-2.md) | Addresses on interfaces |
-| [Switch interfaces](01-fundamentals/switch-interfaces.md) | Speed, duplex, errors |
-| [IPv4 header](01-fundamentals/ipv4-header.md) | TTL, fragmentation. [Wireshark Learn](https://www.wireshark.org/learn) |
-| [Wireshark](01-fundamentals/wireshark.md) | Capture filters and a real ping |
-| [Subnetting, part 1](01-fundamentals/subnetting-1.md) | Equal blocks inside a /24 |
-| [Subnetting, part 2](01-fundamentals/subnetting-2.md) | Masks that cross octets |
-| [VLSM](01-fundamentals/subnetting-vlsm.md) | Different sizes from one block |
-| [IPv6](01-fundamentals/ipv6.md) | Address types, NDP, SLAAC |
+| [Network devices](01-fundamentals/01-network-devices.md) | What switches, routers, and firewalls each stop |
+| [Interfaces and cables](01-fundamentals/02-interfaces-and-cables.md) | Copper, fiber, PoE |
+| [TCP/IP model](01-fundamentals/03-tcp-ip-model.md) | OSI, encapsulation, ports. [Kurose videos](https://gaia.cs.umass.edu/kurose_ross/videos/1/) |
+| [Command line](01-fundamentals/04-command-line.md) | IOS modes and saving a config |
+| [Ethernet switching, part 1](01-fundamentals/05-ethernet-switching-1.md) | Frames and the MAC table |
+| [Ethernet switching, part 2](01-fundamentals/06-ethernet-switching-2.md) | ARP |
+| [IPv4 addressing, part 1](01-fundamentals/07-ipv4-addressing-1.md) | Masks, classes, private ranges |
+| [IPv4 addressing, part 2](01-fundamentals/08-ipv4-addressing-2.md) | Addresses on interfaces |
+| [Switch interfaces](01-fundamentals/09-switch-interfaces.md) | Speed, duplex, errors |
+| [IPv4 header](01-fundamentals/10-ipv4-header.md) | TTL, fragmentation. [Wireshark Learn](https://www.wireshark.org/learn) |
+| [Wireshark](01-fundamentals/11-wireshark.md) | Capture filters and a real ping |
+| [Subnetting, part 1](01-fundamentals/12-subnetting-1.md) | Equal blocks inside a /24 |
+| [Subnetting, part 2](01-fundamentals/13-subnetting-2.md) | Masks that cross octets |
+| [VLSM](01-fundamentals/14-subnetting-vlsm.md) | Different sizes from one block |
+| [IPv6](01-fundamentals/15-ipv6.md) | Address types, NDP, SLAAC |
 
 ## 02 — LAN switching
 
 | Note | Roadmap topic |
 |------|----------------|
-| [VLANs, access ports](02-lan-switching/vlans-access-ports.md) | One broadcast domain per VLAN |
-| [Trunks and router on a stick](02-lan-switching/vlans-trunks-and-roas.md) | 802.1Q and inter-VLAN routing |
-| [Spanning tree](02-lan-switching/spanning-tree.md) | Loops, RSTP, root bridge |
+| [VLANs, access ports](02-lan-switching/01-vlans-access-ports.md) | One broadcast domain per VLAN |
+| [Trunks and router on a stick](02-lan-switching/02-vlans-trunks-and-roas.md) | 802.1Q and inter-VLAN routing |
+| [Spanning tree](02-lan-switching/03-spanning-tree.md) | Loops, RSTP, root bridge |
 
 ## 03 — Routing
 
 | Note | Roadmap topic |
 |------|----------------|
-| [Static routing](03-routing/static-routing.md) | RIB, longest match, static and default routes |
-| [Life of a packet](03-routing/life-of-a-packet.md) | [Packet Traveling](https://www.youtube.com/watch?v=rYodcvhh7b8) |
-| [OSPF](03-routing/ospf.md) | Areas, DR, LSAs. [Jeremy’s notes](https://www.jeremysitlab.com/ccna-resources/) |
-| [IS-IS](03-routing/is-is.md) | Levels, NET, TLVs. [31-minute intro](https://www.youtube.com/watch?v=jWdD8SCwzHk) |
-| [BGP](03-routing/bgp.md) | [Keith Barker playlist](https://www.youtube.com/playlist?list=PLwQhJUHSLJFUO5YzFH2wveh2zcHUKj11w), [how a path is chosen](https://www.practicalnetworking.net/stand-alone/bgp-oldest-path/) |
-| [VRF](03-routing/vrf.md) | Separate tables, RD versus RT |
+| [Static routing](03-routing/01-static-routing.md) | RIB, longest match, static and default routes |
+| [Life of a packet](03-routing/02-life-of-a-packet.md) | [Packet Traveling](https://www.youtube.com/watch?v=rYodcvhh7b8) |
+| [OSPF](03-routing/03-ospf.md) | Areas, DR, LSAs. [Jeremy’s notes](https://www.jeremysitlab.com/ccna-resources/) |
+| [IS-IS](03-routing/04-is-is.md) | Levels, NET, TLVs. [31-minute intro](https://www.youtube.com/watch?v=jWdD8SCwzHk) |
+| [BGP](03-routing/05-bgp.md) | [Keith Barker playlist](https://www.youtube.com/playlist?list=PLwQhJUHSLJFUO5YzFH2wveh2zcHUKj11w), [how a path is chosen](https://www.practicalnetworking.net/stand-alone/bgp-oldest-path/) |
+| [VRF](03-routing/06-vrf.md) | Separate tables, RD versus RT |
 
 ## 04 — MPLS
 
 | Note | Roadmap topic |
 |------|----------------|
-| [Architecture, LDP, and labels](04-mpls/architecture-ldp-and-labels.md) | Push, swap, pop, PHP. [RFC 3031](https://datatracker.ietf.org/doc/rfc3031/), [What is MPLS?](https://networklessons.com/mpls) |
+| [Architecture, LDP, and labels](04-mpls/01-architecture-ldp-and-labels.md) | Push, swap, pop, PHP. [RFC 3031](https://datatracker.ietf.org/doc/rfc3031/), [What is MPLS?](https://networklessons.com/mpls) |
 
 ## 05 — VPN services
 
 | Note | Roadmap topic |
 |------|----------------|
-| [L3VPN](05-vpn-services/l3vpn.md) | [RFC 4364](https://datatracker.ietf.org/doc/rfc4364/), [RD vs RT PDF](https://www.sunsetlearning.com/wp-content/uploads/2016/11/L3VPNs-route-target-and-route-distinguisher-Part-1.pdf) |
-| [PE-CE routing](05-vpn-services/pe-ce-routing.md) | [PE-CE OSPF](https://networklessons.com/mpls/mpls-layer-3-vpn-pe-ce-ospf) |
-| [L2VPN, pseudowire, VPLS](05-vpn-services/l2vpn-vpls.md) | [AToM and pseudowire](https://networklessons.com/tag/ldp) |
-| [EVPN](05-vpn-services/evpn.md) | [Juniper primer](https://www.juniper.net/documentation/en_US/day-one-books/topics/topic-map/evpn-primer.html), [Cisco EVPN PDF](https://www.cisco.com/c/en/us/td/docs/iosxr/cisco8000/evpn/evpn-config-cisco8000/fundamentals-and-core-features-of-evpn.pdf) |
+| [L3VPN](05-vpn-services/01-l3vpn.md) | [RFC 4364](https://datatracker.ietf.org/doc/rfc4364/), [RD vs RT PDF](https://www.sunsetlearning.com/wp-content/uploads/2016/11/L3VPNs-route-target-and-route-distinguisher-Part-1.pdf) |
+| [PE-CE routing](05-vpn-services/02-pe-ce-routing.md) | [PE-CE OSPF](https://networklessons.com/mpls/mpls-layer-3-vpn-pe-ce-ospf) |
+| [L2VPN, pseudowire, VPLS](05-vpn-services/03-l2vpn-vpls.md) | [AToM and pseudowire](https://networklessons.com/tag/ldp) |
+| [EVPN](05-vpn-services/04-evpn.md) | [Juniper primer](https://www.juniper.net/documentation/en_US/day-one-books/topics/topic-map/evpn-primer.html), [Cisco EVPN PDF](https://www.cisco.com/c/en/us/td/docs/iosxr/cisco8000/evpn/evpn-config-cisco8000/fundamentals-and-core-features-of-evpn.pdf) |
 
 ## 06 — Traffic engineering
 
 | Note | Roadmap topic |
 |------|----------------|
-| [RSVP-TE](06-traffic-engineering/rsvp-te.md) | [RFC 3209](https://datatracker.ietf.org/doc/html/rfc3209), [operation video](https://www.youtube.com/watch?v=LzkKaRATJyw) |
-| [SR-MPLS](06-traffic-engineering/sr-mpls.md) | [RFC 8402](https://datatracker.ietf.org/doc/html/rfc8402), [Cisco Community intro](https://community.cisco.com/t5/video/gallerypage/video-id/6064655138001) |
-| [SRv6](06-traffic-engineering/srv6.md) | [Explained](https://www.youtube.com/watch?v=c24v8CUDvzI), RFC 8986 |
+| [RSVP-TE](06-traffic-engineering/01-rsvp-te.md) | [RFC 3209](https://datatracker.ietf.org/doc/html/rfc3209), [operation video](https://www.youtube.com/watch?v=LzkKaRATJyw) |
+| [SR-MPLS](06-traffic-engineering/02-sr-mpls.md) | [RFC 8402](https://datatracker.ietf.org/doc/html/rfc8402), [Cisco Community intro](https://community.cisco.com/t5/video/gallerypage/video-id/6064655138001) |
+| [SRv6](06-traffic-engineering/03-srv6.md) | [Explained](https://www.youtube.com/watch?v=c24v8CUDvzI), RFC 8986 |
 
 ## 07 — Forwarding
 
 | Note | Roadmap topic |
 |------|----------------|
-| [RIB, FIB, and LFIB](07-forwarding/rib-fib-lfib.md) | Control plane versus the tables that actually forward |
+| [RIB, FIB, and LFIB](07-forwarding/01-rib-fib-lfib.md) | Control plane versus the tables that actually forward |
 
 ## 08 — Operations
 
 | Note | Roadmap topic |
 |------|----------------|
-| [QoS](08-operations/qos.md) | DiffServ, pipe mode, policing versus shaping |
-| [High availability](08-operations/high-availability.md) | BFD, graceful restart, NSR |
-| [Troubleshooting](08-operations/troubleshooting.md) | A repeatable L3VPN checklist |
+| [QoS](08-operations/01-qos.md) | DiffServ, pipe mode, policing versus shaping |
+| [High availability](08-operations/02-high-availability.md) | BFD, graceful restart, NSR |
+| [Troubleshooting](08-operations/03-troubleshooting.md) | A repeatable L3VPN checklist |
 
 ## 09 — Automation
 
 | Note | Roadmap topic |
 |------|----------------|
-| [YANG, NETCONF, RESTCONF, gNMI](09-automation/yang-netconf-gnmi.md) | [DevNet series](https://developer.cisco.com/video/net-prog-basics/00-intro/intro/), [course labs](https://github.com/CiscoDevNet/netprog_basics) |
+| [YANG, NETCONF, RESTCONF, gNMI](09-automation/01-yang-netconf-gnmi.md) | [DevNet series](https://developer.cisco.com/video/net-prog-basics/00-intro/intro/), [course labs](https://github.com/CiscoDevNet/netprog_basics) |
 
 ## Phase sources still worth opening
 
@@ -134,4 +134,4 @@ These are the external pieces the notes cite, kept here so a phase can be studie
 |--------|--------------------------------|
 | Full IS-IS labs | A vendor course after the 31-minute intro and JNCIS-SP |
 | Carrier-grade TE and FRR | A Nokia, Junos, or IOS-XR lab. The note is the mechanism. |
-| ASIC and SDK forwarding | Internal architecture docs. [RIB, FIB, and LFIB](07-forwarding/rib-fib-lfib.md) is the public model only. |
+| ASIC and SDK forwarding | Internal architecture docs. [RIB, FIB, and LFIB](07-forwarding/01-rib-fib-lfib.md) is the public model only. |

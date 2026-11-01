@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Troubleshooting is a sequence you can repeat, not a pile of show commands. Start at the layer that is actually broken, confirm one fact, then move one step toward the destination. The list below is the one to copy into a lab notebook and into a design review. It assumes a customer ping across an [L3VPN](../05-vpn-services/l3vpn.md). The same order works for a campus ping if you stop before the labels.
+Troubleshooting is a sequence you can repeat, not a pile of show commands. Start at the layer that is actually broken, confirm one fact, then move one step toward the destination. The list below is the one to copy into a lab notebook and into a design review. It assumes a customer ping across an [L3VPN](../05-vpn-services/01-l3vpn.md). The same order works for a campus ping if you stop before the labels.
 
 ## References
 
@@ -95,6 +95,6 @@ That is a better note than a page of `show running-config`.
 
 1. No. The global table is not supposed to have the customer prefix. The VRF ping is the test.
 2. The route target does not match the VRF’s import, or it was stripped because extended communities were not sent. Also a next hop that is not labeled, which keeps BGP from installing the route.
-3. IP to the loopback uses the IP FIB. The VPN packet needs a transport label in the LFIB. Those are different tables. See [RIB, FIB, and LFIB](../07-forwarding/rib-fib-lfib.md).
+3. IP to the loopback uses the IP FIB. The VPN packet needs a transport label in the LFIB. Those are different tables. See [RIB, FIB, and LFIB](../07-forwarding/01-rib-fib-lfib.md).
 4. Which of the two changes fixed it. Re-introduce them one at a time in a lab, or you will “fix” the next ticket by doing both.
 5. After the forward path is proven, or immediately if you do not yet know which direction fails. A one-way failure is still a failure.

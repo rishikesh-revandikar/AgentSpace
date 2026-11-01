@@ -40,7 +40,7 @@ R2 and R3 are in different autonomous systems, so that session is **eBGP**. R1 a
 
 The last row is the split-horizon rule. It prevents an iBGP loop. It also means a full mesh, or a route reflector.
 
-A **route reflector** is allowed to re-advertise iBGP routes to its clients. Clients peer with the reflector, not with each other. The cluster ID stops a loop if you have more than one reflector. In a VPN network the reflector carries VPNv4 or EVPN the same way. See [L3VPN](../05-vpn-services/l3vpn.md).
+A **route reflector** is allowed to re-advertise iBGP routes to its clients. Clients peer with the reflector, not with each other. The cluster ID stops a loop if you have more than one reflector. In a VPN network the reflector carries VPNv4 or EVPN the same way. See [L3VPN](../05-vpn-services/01-l3vpn.md).
 
 **Next hop.** R3 advertises 203.0.113.0/24 to R2. R2’s iBGP advertisement to R1 still says next hop R3, unless R2 is configured with `next-hop-self`. R1 then needs an IGP route to R3’s address, which is often not in the IGP at all. `next-hop-self` rewrites the next hop to R2’s loopback, which the IGP does know. Use it on route reflectors and on the edge router that learned the eBGP route.
 

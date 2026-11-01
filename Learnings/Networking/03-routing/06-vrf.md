@@ -84,7 +84,7 @@ Spokes do not import each other’s RT, so they do not learn each other’s pref
 
 ## VRF without MPLS
 
-You can use a VRF on a single router to keep a management network or a customer handoff out of the global table. No labels, no BGP. The moment those routes must reach another PE, you are in [L3VPN](../05-vpn-services/l3vpn.md): MP-BGP carries the VPNv4 route, and MPLS (or another tunnel) carries the packet.
+You can use a VRF on a single router to keep a management network or a customer handoff out of the global table. No labels, no BGP. The moment those routes must reach another PE, you are in [L3VPN](../05-vpn-services/01-l3vpn.md): MP-BGP carries the VPNv4 route, and MPLS (or another tunnel) carries the packet.
 
 Leaking a route from a VRF into global, or between VRFs on the same box, is a separate policy (`export map`, or a route leaking configuration). Do not leak by putting the customer interface back in the global table.
 

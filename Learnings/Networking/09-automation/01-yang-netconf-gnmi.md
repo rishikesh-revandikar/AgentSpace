@@ -1,6 +1,6 @@
 # YANG, NETCONF, RESTCONF, and gNMI
 
-The CLI notes in [the command line](../01-fundamentals/command-line.md) are how a person configures one router. A program needs a schema and a stable operation. YANG is the schema. NETCONF, RESTCONF, and gNMI are three ways to read and write data that fits the schema. Ansible is how a lot of teams call those operations without writing a client from scratch.
+The CLI notes in [the command line](../01-fundamentals/04-command-line.md) are how a person configures one router. A program needs a schema and a stable operation. YANG is the schema. NETCONF, RESTCONF, and gNMI are three ways to read and write data that fits the schema. Ansible is how a lot of teams call those operations without writing a client from scratch.
 
 ## References
 

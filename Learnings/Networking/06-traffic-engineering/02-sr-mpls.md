@@ -1,6 +1,6 @@
 # Segment routing, SR-MPLS
 
-Segment routing encodes a path as a stack of instructions, called segments. In SR-MPLS each instruction is an MPLS label. The core routers do not hold per-LSP state. They already know what each label means because the IGP advertised it. The headend decides the path by pushing the right stack. That is the scaling answer to [RSVP-TE](rsvp-te.md).
+Segment routing encodes a path as a stack of instructions, called segments. In SR-MPLS each instruction is an MPLS label. The core routers do not hold per-LSP state. They already know what each label means because the IGP advertised it. The headend decides the path by pushing the right stack. That is the scaling answer to [RSVP-TE](01-rsvp-te.md).
 
 ## References
 

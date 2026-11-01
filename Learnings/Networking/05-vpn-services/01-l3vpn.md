@@ -16,7 +16,7 @@ An L3VPN is a customer routing table that exists on more than one PE. Each PE ke
 - [RD versus RT, part 1 (PDF)](https://www.sunsetlearning.com/wp-content/uploads/2016/11/L3VPNs-route-target-and-route-distinguisher-Part-1.pdf)
 - [Juniper, RD and RT](https://www.juniper.net/documentation/us/en/software/junos/multicast/topics/concept/ng-mvpn-concepts-terminology.html)
 
-Read [VRF](../03-routing/vrf.md), [BGP](../03-routing/bgp.md), and [MPLS and LDP](../04-mpls/architecture-ldp-and-labels.md) first.
+Read [VRF](../03-routing/06-vrf.md), [BGP](../03-routing/05-bgp.md), and [MPLS and LDP](../04-mpls/01-architecture-ldp-and-labels.md) first.
 
 ## Diagram
 
@@ -56,7 +56,7 @@ If the transport label is missing, the packet cannot cross the core as MPLS. A c
 
 ## Configuration outline
 
-The PE-CE conversation itself is [PE-CE routing](pe-ce-routing.md). The core pieces on each PE:
+The PE-CE conversation itself is [PE-CE routing](02-pe-ce-routing.md). The core pieces on each PE:
 
 ```text
 PE1(config)# ip vrf CUST

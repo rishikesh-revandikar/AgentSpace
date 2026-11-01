@@ -72,7 +72,7 @@ Point-to-point interfaces have no DIS. Core links should be point-to-point.
 
 An IS-IS LSP is a set of type-length-value fields. IPv4 reachability, IPv6 reachability, traffic-engineering bandwidth, and segment-routing SIDs were all added as TLVs. The adjacency stayed the same. OSPFv2 could not carry IPv6, so OSPFv3 is a second protocol. IS-IS carries both in one process (multi-topology IS-IS exists when you want separate SPF trees for v4 and v6).
 
-That is the practical reason a core that will run MPLS traffic engineering and segment routing is IS-IS: the TE extensions and the SR extensions are TLVs on the IGP you already have. See [RSVP-TE](../06-traffic-engineering/rsvp-te.md) and [SR-MPLS](../06-traffic-engineering/sr-mpls.md).
+That is the practical reason a core that will run MPLS traffic engineering and segment routing is IS-IS: the TE extensions and the SR extensions are TLVs on the IGP you already have. See [RSVP-TE](../06-traffic-engineering/01-rsvp-te.md) and [SR-MPLS](../06-traffic-engineering/02-sr-mpls.md).
 
 ## Configuration sketches
 

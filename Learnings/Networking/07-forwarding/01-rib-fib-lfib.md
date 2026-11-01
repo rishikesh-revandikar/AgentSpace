@@ -7,7 +7,7 @@ The control plane decides. The data plane forwards. Mixing those two up is how a
 ### Videos
 
 - [Packet Traveling](https://www.youtube.com/watch?v=rYodcvhh7b8)
-- Keith Barker’s MPLS L3VPN and BGP material, linked from [L3VPN](../05-vpn-services/l3vpn.md)
+- Keith Barker’s MPLS L3VPN and BGP material, linked from [L3VPN](../05-vpn-services/01-l3vpn.md)
 
 ### Articles
 
@@ -29,7 +29,7 @@ flowchart TB
   choice -->|no| fib
 ```
 
-A packet is forwarded by the FIB or the LFIB, never by a routing protocol. If the protocol is still computing and the FIB has the old answer, traffic follows the old answer. That is also why a route-processor switchover can keep forwarding: the FIB was already programmed. See [high availability](../08-operations/high-availability.md).
+A packet is forwarded by the FIB or the LFIB, never by a routing protocol. If the protocol is still computing and the FIB has the old answer, traffic follows the old answer. That is also why a route-processor switchover can keep forwarding: the FIB was already programmed. See [high availability](../08-operations/02-high-availability.md).
 
 ## The tables
 
@@ -48,7 +48,7 @@ A packet is forwarded by the FIB or the LFIB, never by a routing protocol. If th
 3. Longest prefix match inside that one table.
 4. Attach the adjacency rewrite and send.
 
-A VPN packet on the egress PE is both steps. The LFIB pop of the VPN label selects the VRF. The FIB lookup inside that VRF selects the CE next hop. One packet, two tables, in that order. [L3VPN](../05-vpn-services/l3vpn.md) is this paragraph with names on the labels.
+A VPN packet on the egress PE is both steps. The LFIB pop of the VPN label selects the VRF. The FIB lookup inside that VRF selects the CE next hop. One packet, two tables, in that order. [L3VPN](../05-vpn-services/01-l3vpn.md) is this paragraph with names on the labels.
 
 ## Control plane versus data plane, on one failure
 
